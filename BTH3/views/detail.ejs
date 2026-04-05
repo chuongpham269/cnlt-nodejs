@@ -1,0 +1,65 @@
+<%- include('layouts/header') %>
+<%- include('layouts/navbar') %>
+
+<div class="row">
+    <div class="col-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a href="/list">Danh sách CLB</a></li>
+                <li class="breadcrumb-item active"><%= club.name %></li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 mb-4">
+        <img src="<%= club.image || 'https://via.placeholder.com/600x400' %>" 
+             class="img-fluid rounded" 
+             alt="<%= club.name %>"
+             style="width: 100%; height: 400px; object-fit: cover;">
+    </div>
+    
+    <div class="col-md-6">
+        <h1><%= club.name %></h1>
+        
+        <div class="mb-3">
+            <span class="badge bg-info"><%= club.category %></span>
+            <% if(club.hot) { %>
+                <span class="badge bg-danger">Nổi bật</span>
+            <% } else { %>
+                <span class="badge bg-secondary">CLB thường</span>
+            <% } %>
+        </div>
+        
+        <h5>Thông tin chung:</h5>
+        <ul class="list-unstyled">
+            <li><i class="fas fa-calendar"></i> <strong>Năm thành lập:</strong> <%= club.founded %></li>
+            <li><i class="fas fa-user-friends"></i> <strong>Số lượng thành viên:</strong> <%= club.members %></li>
+        </ul>
+        
+        <h5>Mô tả:</h5>
+        <p class="lead"><%= club.description %></p>
+        
+        <h5>Hoạt động chính:</h5>
+        <ul>
+            <% if(club.activities) { %>
+                <% club.activities.forEach(activity => { %>
+                    <li><%= activity %></li>
+                <% }); %>
+            <% } %>
+        </ul>
+        
+        <div class="mt-4">
+            <a href="/list" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Quay lại danh sách
+            </a>
+            <a href="/contact" class="btn btn-primary">
+                <i class="fas fa-envelope"></i> Đăng ký tham gia
+            </a>
+        </div>
+    </div>
+</div>
+
+<%- include('layouts/footer') %>

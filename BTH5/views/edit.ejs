@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chỉnh sửa bài viết</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <a href="/" class="back-link">← Quay lại trang chủ</a>
+
+        <header>
+            <h1>Chỉnh sửa bài viết</h1>
+        </header>
+
+        <div class="card">
+            <!-- Form cập nhật luôn truyền thêm ID vào đuôi URL -->
+            <form action="/blogposts/update/<%= post._id %>" method="POST">
+                <div class="form-group">
+                    <label for="title">Tiêu đề bài viết:</label>
+                    <input type="text" id="title" name="title" value="<%= post.title %>" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="body">Nội dung:</label>
+                    <textarea id="body" name="body" rows="8" required><%= post.body %></textarea>
+                </div>
+
+                <button type="submit" class="btn">Cập nhật bài viết</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

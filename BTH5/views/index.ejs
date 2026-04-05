@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog của tôi</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>My Personal Blog</h1>
+            <a href="/blogposts/new" class="btn">✨ Viết Bài Mới</a>
+        </header>
+
+        <main class="post-grid">
+            <% if (posts.length===0) { %>
+                <div class="card center-text">
+                    <p>Chưa có bài viết nào. Hãy tạo bài viết đầu tiên!</p>
+                </div>
+                <% } %>
+
+                    <% posts.forEach(post=> { %>
+                        <div class="card">
+                            <h2 class="card-title">
+                                <%= post.title %>
+                            </h2>
+                            <p class="card-body">
+                                <%= post.body %>
+                            </p>
+
+                            <div class="card-actions">
+                                <a href="/blogposts/<%= post._id %>" class="btn btn-secondary">Đọc tiếp</a>
+                                <a href="/blogposts/edit/<%= post._id %>" class="btn btn-secondary">Sửa</a>
+                                <a href="/blogposts/delete/<%= post._id %>" class="btn btn-delete"
+                                    onclick="confirmDelete(event)">Xóa</a>
+                            </div>
+                        </div>
+                        <% }) %>
+        </main>
+    </div>
+
+    <script>
+        function confirmDelete(e) {
+            if (!confirm('Bạn có chắc chắn muốn xóa bài viết này vĩnh viễn không?')) {
+                e.preventDefault();
+            }
+        }
+    </script>
+</body>
+
+</html>

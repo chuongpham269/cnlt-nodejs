@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Trang chủ</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Danh sách bài viết</h1>
+    <a href="/blogposts/new" class="btn">Tạo bài viết mới</a>
+    <ul>
+        <% posts.forEach(post => { %>
+            <li class="post-item">
+                <strong><%= post.title %></strong><br>
+                <span><%= post.body %></span><br>
+                
+                <a href="/blogposts/<%= post._id %>">Xem chi tiết</a> | 
+                <a href="/blogposts/edit/<%= post._id %>" class="btn">Chỉnh sửa</a> | 
+                <a href="/blogposts/delete/<%= post._id %>" class="btn btn-delete" onclick="confirmDelete(event)">Xóa</a>
+            </li>
+            <hr>
+        <% }) %>
+    </ul>
+
+    <script>
+        function confirmDelete(e) {
+            if(!confirm('Bạn có chắc muốn xóa bài viết này không?')) {
+                e.preventDefault();
+            }
+        }
+    </script>
+</body>
+</html>

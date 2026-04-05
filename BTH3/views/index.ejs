@@ -1,0 +1,82 @@
+<%- include('layouts/header') %>
+<%- include('layouts/navbar') %>
+
+<div class="row">
+    <div class="col-12 text-center mb-4">
+        <h1 class="display-4">Chào mừng đến với CLB Sinh viên</h1>
+        <p class="lead">Nơi kết nối đam mê, phát triển kỹ năng và mở rộng mối quan hệ</p>
+    </div>
+</div>
+
+<!-- Giới thiệu nhanh -->
+<div class="row mb-5">
+    <div class="col-md-4 mb-3">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <i class="fas fa-users fa-3x text-primary mb-3"></i>
+                <h3>5+ CLB</h3>
+                <p>Đa dạng lĩnh vực từ học thuật đến thể thao, nghệ thuật</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <i class="fas fa-calendar-alt fa-3x text-success mb-3"></i>
+                <h3>20+ Hoạt động</h3>
+                <p>Các sự kiện, workshop được tổ chức hàng năm</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <i class="fas fa-trophy fa-3x text-warning mb-3"></i>
+                <h3>270+ Thành viên</h3>
+                <p>Cộng đồng sinh viên năng động, sáng tạo</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CLB nổi bật -->
+<div class="row mb-4">
+    <div class="col-12">
+        <h2 class="text-center mb-4">Câu lạc bộ nổi bật</h2>
+    </div>
+    <% if (featuredClubs && featuredClubs.length > 0) { %>
+        <% featuredClubs.forEach(club => { %>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="<%= club.image || 'https://via.placeholder.com/300x200' %>" 
+                         class="card-img-top" 
+                         alt="<%= club.name %>"
+                         style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= club.name %></h5>
+                        <p class="card-text"><%= club.description.substring(0, 100) %>...</p>
+                        <p><i class="fas fa-user-friends"></i> <%= club.members %> thành viên</p>
+                        <span class="badge bg-danger">Nổi bật</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="/detail/<%= club.id %>" class="btn btn-primary">Xem chi tiết</a>
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+    <% } else { %>
+        <div class="col-12">
+            <p class="text-center">Chưa có câu lạc bộ nổi bật nào.</p>
+        </div>
+    <% } %>
+</div>
+
+<div class="row">
+    <div class="col-12 text-center">
+        <a href="/list" class="btn btn-lg btn-outline-primary">
+            <i class="fas fa-list"></i> Xem tất cả câu lạc bộ
+        </a>
+    </div>
+</div>
+
+<%- include('layouts/footer') %>

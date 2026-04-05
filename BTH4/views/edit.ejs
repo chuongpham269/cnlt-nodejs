@@ -1,0 +1,5 @@
+<form action="/blogposts/update/<%= post._id %>" method="POST">
+    <input type="text" name="title" value="<%= post.title %>">
+    <textarea name="body"><%= post.body %></textarea>
+    <button type="submit" class="btn">Cập nhật</button>
+</form>
