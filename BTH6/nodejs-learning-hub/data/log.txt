@@ -1,0 +1,1 @@
+[LOG INIT] BTH6 server log file initialized.

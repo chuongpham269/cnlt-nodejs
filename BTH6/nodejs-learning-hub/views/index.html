@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BTH6 - Trang chủ</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 20px; }
+        .container { background: #fff; padding: 30px; border-radius: 8px; max-width: 800px; margin: auto; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        h1 { color: #333; }
+        nav { margin-bottom: 20px; background: #e9ecef; padding: 15px; border-radius: 5px; }
+        nav a { margin-right: 15px; text-decoration: none; color: #007bff; font-weight: bold; }
+        nav a:hover { text-decoration: underline; }
+        ul { list-style-type: none; padding: 0; }
+        li { background: #f8f9fa; margin-bottom: 10px; padding: 10px; border-left: 4px solid #007bff; }
+        li a { text-decoration: none; color: #333; font-weight: bold;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bài Thực Hành Khóa Lập Trình Node.js</h1>
+        <p>Chào mừng đến với hệ thống tổng hợp của BTH Số 6.</p>
+        <nav>
+            <a href="/">Trang chủ</a>
+            <a href="/events">Events</a>
+            <a href="/request?name=HocVien&course=NodeJS">Request Info</a>
+            <a href="/streams">Streams</a>
+        </nav>
+        
+        <h2>Danh sách Endpoints Chức năng</h2>
+        <ul>
+            <li><a href="/json" target="_blank">/json</a> - API trả về dữ liệu định dạng JSON.</li>
+            <li><a href="/image" target="_blank">/image</a> - API stream ảnh từ server xuống client.</li>
+            <li><a href="/download-log" target="_blank">/download-log</a> - API đọc và tải file stream log.</li>
+        </ul>
+    </div>
+</body>
+</html>

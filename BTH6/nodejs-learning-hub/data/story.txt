@@ -1,0 +1,4 @@
+This is a sample story for the Readable Stream demonstration in BTH6.
+Node.js makes handling I/O operations seamlessly using event-driven, non-blocking asynchronous paradigms.
+Streams are powerful ways to handle large amounts of data by chunking them.
+Enjoy learning Node.js streams!

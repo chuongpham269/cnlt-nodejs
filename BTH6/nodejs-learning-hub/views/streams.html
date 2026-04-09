@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BTH6 - Streams</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f0f2f5; padding: 20px; }
+        .container { background: #fff; padding: 30px; border-radius: 8px; max-width: 800px; margin: auto; }
+        .section { margin-bottom: 30px; padding: 15px; border: 1px solid #ddd; border-radius: 6px; }
+        iframe { width: 100%; border: 1px dashed #ccc; height: 100px; margin-top: 10px; background: #f9f9f9; }
+        form { margin-top: 10px; display: flex; gap: 10px;}
+        input[type="text"] { padding: 8px; flex: 1; border: 1px solid #ccc; border-radius: 4px;}
+        button { padding: 8px 15px; background: #007bff; color: white; border: none; cursor: pointer; border-radius: 4px;}
+        a { color: #007bff; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Tổng hợp Streams (/streams)</h2>
+        <p><a href="/">🏠 Quay lại Trang chủ</a></p>
+        <hr>
+
+        <div class="section">
+            <h3>4.1 Readable Stream (Hiển thị text từ file `story.txt`)</h3>
+            <iframe src="/streams/readable" title="Readable Stream"></iframe>
+        </div>
+
+        <div class="section">
+            <h3>4.2 Writable Stream (Ghi file log)</h3>
+            <p>Nhập liệu bên dưới, dữ liệu sẽ được push sang server lưu vào `log.txt` thông qua createWriteStream.</p>
+            <form action="/streams/writable" method="POST" target="writableFrame">
+                <input type="text" name="logText" placeholder="Nhập dữ liệu log (VD: User login)..." required>
+                <button type="submit">Ghi vào log</button>
+            </form>
+            <iframe name="writableFrame" title="Writable Stream result"></iframe>
+        </div>
+
+        <div class="section">
+            <h3>4.3 Transform Stream (Biến đổi chữ)</h3>
+            <p>Nhập chữ thường bất kỳ. Server nhận stream, đưa vào Transform để chuyển thành IN HOA trước khi trả về.</p>
+            <form action="/streams/transform" method="POST" target="transformFrame">
+                <input type="text" name="transformText" placeholder="VD: hello world" required>
+                <button type="submit">Transform Stream</button>
+            </form>
+            <iframe name="transformFrame" title="Transform Stream result"></iframe>
+        </div>
+
+        <div class="section">
+            <h3>4.4 Duplex Stream (Echo Message)</h3>
+            <p>Gửi dữ liệu, Duplex stream server sẽ vừa nhận `_write` vừa trả `_read` cùng lúc chữ 'Echo:'.</p>
+            <form action="/streams/duplex" method="POST" target="duplexFrame">
+                <input type="text" name="duplexText" placeholder="VD: Ping pong" required>
+                <button type="submit">Duplex Stream</button>
+            </form>
+            <iframe name="duplexFrame" title="Duplex Stream result"></iframe>
+        </div>
+    </div>
+</body>
+</html>

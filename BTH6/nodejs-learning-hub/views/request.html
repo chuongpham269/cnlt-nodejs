@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BTH6 - Request & Headers</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f0f2f5; padding: 20px; }
+        .container { background: #fff; padding: 30px; border-radius: 8px; max-width: 800px; margin: auto; }
+        pre { background: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 4px; font-family: monospace; overflow-x: auto; }
+        a { color: #007bff; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Thông tin Request & Response Headers</h2>
+        <p><a href="/">🏠 Quay lại Trang chủ</a></p>
+        <hr>
+        <h3>Request URL & Method:</h3>
+        <ul>
+            <li><strong>URL:</strong> {{REQ_URL}}</li>
+            <li><strong>Method:</strong> {{REQ_METHOD}}</li>
+            <li><strong>Query String (JSON):</strong> <pre>{{REQ_QUERY}}</pre></li>
+        </ul>
+        
+        <h3>Request Headers từ Client (Trình duyệt):</h3>
+        <pre>{{REQ_HEADERS}}</pre>
+
+        <h3>Response Headers (Đã thiết lập ở HTTP Server trả về):</h3>
+        <pre>{{RES_HEADERS}}</pre>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BTH6 - Events</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f0f2f5; padding: 20px; }
+        .container { background: #fff; padding: 30px; border-radius: 8px; max-width: 800px; margin: auto; }
+        button { padding: 10px 20px; background: #28a745; color: #fff; border: none; cursor: pointer; border-radius: 4px; font-size: 16px; }
+        button:hover { background: #218838; }
+        pre { background: #222; color: #0f0; padding: 15px; border-radius: 4px; }
+        a { color: #007bff; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Minh họa EventEmitter (/events)</h2>
+        <p><a href="/">🏠 Quay lại Trang chủ</a></p>
+        <hr>
+        <p>Bấm nút bên dưới để gọi API `/event` theo method POST, trigger `EventEmitter` trên Server.</p>
+        <button id="triggerBtn">Kích hoạt sự kiện (Trigger Event)</button>
+        <br><br>
+        <strong>Kết quả trả về từ Server:</strong>
+        <pre id="result">Chưa có dữ liệu...</pre>
+
+        <script>
+            document.getElementById('triggerBtn').addEventListener('click', async () => {
+                document.getElementById('result').innerText = 'Đang gọi server...';
+                try {
+                    const res = await fetch('/event', { method: 'POST' });
+                    const data = await res.json();
+                    document.getElementById('result').innerText = JSON.stringify(data, null, 2);
+                } catch(err) {
+                    document.getElementById('result').innerText = 'Error: ' + err.message;
+                }
+            });
+        </script>
+    </div>
+</body>
+</html>
