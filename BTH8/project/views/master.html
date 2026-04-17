@@ -1,0 +1,21 @@
+<!-- File: project/views/master.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Upload File NodeJS</title>
+</head>
+
+<body>
+    <h2>Form Upload File</h2>
+    <!-- File: project/views/master.html (Sửa thêm) -->
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <!-- Thêm multiple để ctrl+click chọn nhiều ảnh, đổi name thành many-files giống file server -->
+        <input type="file" name="many-files" multiple>
+        <button type="submit">Submit Multer Multiple</button>
+    </form>
+
+</body>
+
+</html>
