@@ -1,0 +1,17 @@
+{
+  "name": "bth9",
+  "version": "1.0.0",
+  "description": "Quản lý nhiều truy cập đồng thời",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-session": "^1.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
